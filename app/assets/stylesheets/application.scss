@@ -12,3 +12,23 @@
  *
  */
 @import "bootstrap"; 
+
+
+.nav-item a {
+  color: #7e00ff;
+}
+
+.navbar {
+  background-color: lightgray;
+  border-bottom: grey;
+}
+
+.navbar-brand {
+  size: 20%;
+}
+.navbar-expand-md .navbar-collapse {
+  justify-content: flex-end;
+}
+.nav-item ul {
+justify-content: right;
+}
