@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ADHDEffect</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <%= stylesheet_link_tag 'devise', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Zilla+Slab&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <%= render 'navbar' %>
+    <%= render 'login_alert' %>
+    <%= yield %>
+  </body>
+</html>
