@@ -8,6 +8,6 @@ class HomeController < ApplicationController
   private
 
   def check_signed_in
-    redirect_to home_path if signed_in?
+    redirect_to effects_path if signed_in?
   end
 end

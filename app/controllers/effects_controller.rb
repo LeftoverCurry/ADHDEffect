@@ -1,16 +1,17 @@
+# frozen_string_literal: true
+
 class EffectsController < ApplicationController
-  before_action :set_effect, only: [:show, :edit, :update, :destroy]
+  before_action :set_effect, only: %i[show edit update destroy]
 
   # GET /effects
   # GET /effects.json
   def index
-    @effects = Effect.all
+    @effects = current_user.effects
   end
 
   # GET /effects/1
   # GET /effects/1.json
-  def show
-  end
+  def show; end
 
   # GET /effects/new
   def new
@@ -18,8 +19,7 @@ class EffectsController < ApplicationController
   end
 
   # GET /effects/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /effects
   # POST /effects.json
@@ -62,13 +62,14 @@ class EffectsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_effect
-      @effect = Effect.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def effect_params
-      params.fetch(:effect, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_effect
+    @effect = Effect.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def effect_params
+    params.fetch(:effect, {})
+  end
 end
