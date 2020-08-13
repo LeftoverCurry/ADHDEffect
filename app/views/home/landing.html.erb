@@ -6,12 +6,7 @@
   <p class='text-center'>ADHDEffect is a web app designed to track your moods, side effects, and tolerance development from new ADHD medications.</p> 
   <div class='p-2'></div>
   <div class='row button-container'>
-   
-      <button type='button' class='btn btn-primary btn-lg text-nowrap m-2'>Sign In</button>
-   
-  
-    
-      <button type='button' class='btn btn-primary btn-lg text-nowrap m-2'>Sign Up</button>
-   
+    <%= link_to  "Sign In",new_user_session_path, class:'btn btn-primary btn-lg text-nowrap m-2', type: 'button' %>
+    <%= link_to  "Sign Up",new_user_registration_path, class:'btn btn-primary btn-lg text-nowrap m-2', type: 'button' %>
   </div>
 </div>
