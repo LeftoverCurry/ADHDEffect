@@ -2,9 +2,9 @@
 
 FactoryBot.define do
   factory :effect do
-    id { 1 }
-    user_name { Faker::Name.first_name }
-    email { Faker::Internet.safe_email }
-    password { 'veracity' }
+    datetime { Faker::Time.backward(days: 1, period: :evening) }
+    mood { Faker::Number.within(range: 1..10) }
+    side_effects { %w[irritability drowsiness] }
+    user_id { 1 }
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: effects
@@ -21,5 +23,10 @@
 require 'rails_helper'
 
 RSpec.describe Effect, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:user) { create :user }
+  let(:effect) { create :effect, user_id: user.id }
+
+  it 'passes with valid params' do
+    expect(effect).to be_valid
+  end
 end
