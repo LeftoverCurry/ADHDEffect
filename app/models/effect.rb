@@ -4,13 +4,14 @@
 #
 # Table name: effects
 #
-#  id           :bigint           not null, primary key
-#  datetime     :datetime
-#  mood         :integer
-#  side_effects :text             default([]), is an Array
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#  user_id      :bigint           not null
+#  id            :bigint           not null, primary key
+#  datetime      :datetime
+#  effectiveness :integer
+#  mood          :integer
+#  side_effects  :text             default([]), is an Array
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  user_id       :bigint           not null
 #
 # Indexes
 #
@@ -24,5 +25,5 @@ class Effect < ApplicationRecord
   belongs_to :user
   validates :datetime, presence: true
   validates :mood, presence: true
-  validates :side_effects, presence: true
+  SIDE_EFFECTS = ['difficulty sleeping', 'loss of appetite', 'increased blood pressure', 'dizziness', 'headache', 'nausea', 'irritability', 'depression', 'nervousness', 'development of tics', 'chest pain', 'increased heart rate', 'vision problems', 'sexual dysfuction', 'dry mouth', 'drowsiness', 'constipation', 'diarrhea'].freeze
 end
