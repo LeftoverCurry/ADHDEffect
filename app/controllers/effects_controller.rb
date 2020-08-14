@@ -6,9 +6,7 @@ class EffectsController < ApplicationController
   # GET /effects
   # GET /effects.json
   def index
-    user_effects = Effect.where(user_id: current_user.id)
-    @moods = user_effects.pluck(:mood)
-    @side_effects = user_effects.pluck(:side_effects)
+    @user_effects = Effect.where(user_id: current_user.id)
   end
 
   # GET /effects/1
