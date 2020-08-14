@@ -6,9 +6,7 @@
     <div class='col-2'></div>
     <div class='col-4'>
       <h3 class='text-center'>Mood</h3>
-      <% data_hash = {}%>
-      <% @user_effects.each { |record|  data_hash[record.datetime] = record.mood}%>
-      <%= area_chart data_hash %>
+      <%= area_chart build_mood_chart %>
     </div>
     <div class='col-4 data'>
       <h3 class='text-center'>position test</h3>
