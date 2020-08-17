@@ -1,18 +1,22 @@
 <div class='container-fluid'>
-  <div class= text-center>
-    <h1>Let's see how it's been going:</h1>
+  <div class='row my-4 justify-content-center'>
+    <div class= text-center>
+      <h1>Let's see how it's been going:</h1>
+    </div>
   </div>
   <div class='row my-5'>
-    <div class='col-2'></div>
-    <div class='col-4'>
+    <div class='col-lg-4'>
       <h3 class='text-center'>Mood</h3>
-      <%= area_chart build_mood_chart %>
+      <%= area_chart build_mood_chart, colors: ['7e00ff'] %>
     </div>
-    <div class='col-4 data'>
+    <div class='col-lg-4'>
+      <h3 class='text-center'>Effectiveness</h3>
+      <%= area_chart build_effectiveness_chart, colors: ['7e00ff'] %>
+    </div>
+    <div class='col-lg-4'>
       <h3 class='text-center'>position test</h3>
-      <%= image_tag 'pandas.jpg', class: 'img-fluid' %>
+      <%= line_chart @user_effects.group(:goal_id).group_by_week(:created_at).count %>
     </div>
-    <div class='col-2'></div>
   </div>
   <div class="text-center">
   <%= link_to 'How are you feeling today?', new_effect_path, class:'btn btn-primary btn-lg text-nowrap m-2', type: 'button' %>

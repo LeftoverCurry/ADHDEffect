@@ -25,5 +25,4 @@ class Effect < ApplicationRecord
   belongs_to :user
   validates :datetime, presence: true
   validates :mood, presence: true
-  SIDE_EFFECTS = ['difficulty sleeping', 'loss of appetite', 'increased blood pressure', 'dizziness', 'headache', 'nausea', 'irritability', 'depression', 'nervousness', 'development of tics', 'chest pain', 'increased heart rate', 'vision problems', 'sexual dysfuction', 'dry mouth', 'drowsiness', 'constipation', 'diarrhea'].freeze
 end

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :records
   resources :effects
   get 'home/landing'
   devise_for :users
