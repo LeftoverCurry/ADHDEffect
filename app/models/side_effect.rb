@@ -20,4 +20,17 @@
 #
 class SideEffect < ApplicationRecord
   belongs_to :entry
+
+  LIST = ['difficulty falling asleep',
+          'lack of appetite',
+          'headache',
+          'stomachache or nausea',
+          'diarrhea',
+          'constipation',
+          'dizziness',
+          'dry mouth',
+          'irritability',
+          'increased heart rate',
+          'anxiety',
+          'feeling jittery'].freeze
 end
