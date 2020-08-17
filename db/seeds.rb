@@ -16,10 +16,11 @@ class SeedOneUser
   def create_entries_for_user(user, generated_side_effects)
     days_back = 30
     while days_back.positive?
-      record = Entry.create!(date_of_report: days_back.days.ago, user_id: user.id)
-      record.mood.data = Faker::Number.within(range: 1..10)
-      record.side_effect.data = generated_side_effects
-      record.effectiveness.data = Faker::Number.within(range: 1..10)
+      entry = Entry.create!(date_of_report: days_back.days.ago, user_id: user.id)
+      SideEffect.create!(list: generated_side_effects, entry_id: entry.id)
+      Mood.create!(score: Faker::Number.within(range: 1..10), entry_id: entry.id)
+      Effectiveness.create!(score: Faker::Number.within(range: 1..10), entry_id: entry.id)
+
       days_back -= 1
     end
   end

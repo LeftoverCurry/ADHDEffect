@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: entries
@@ -18,4 +20,10 @@
 #
 class Entry < ApplicationRecord
   belongs_to :user
+  has_one :mood, dependent: :destroy
+  accepts_nested_attributes_for :mood
+  has_one :side_effect, dependent: :destroy
+  accepts_nested_attributes_for :side_effect
+  has_one :effectiveness, dependent: :destroy
+  accepts_nested_attributes_for :effectiveness
 end
