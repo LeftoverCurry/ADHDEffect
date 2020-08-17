@@ -2,37 +2,47 @@
 
 # Seeds the effects table
 
-# def create_test_user
-#   user =
-#     if User.where(user_name: 'test_user').exists?
-#       User.find_by(user_name: 'test_user')
-#     else
-#       User.create!(user_name: 'test_user',
-#                    email: 'test_user@example.com',
-#                    password: 'password')
-#     end
+# Finds or creates Test User
+class SeedOneUser
+  def initialize
+    user = create_test_user
+    Entry.where(user_id: user.id).destroy_all
+    create_entries_for_user(user, generated_side_effects)
+  end
 
-#   Effect.where(user_id: user.id).destroy_all
+  private
 
-#   days_back = 30
-#   while days_back.positive?
-#     Effect.create!(
-#       datetime: days_back.days.ago,
-#       mood: Faker::Number.within(range: 1..10),
-#       side_effects: generated_side_effects,
-#       user_id: user.id,
-#       effectiveness: Faker::Number.within(range: 1..10)
-#     )
-#     days_back -= 1
-#   end
-# end
+  # creates 30 consecutive days of user data
+  def create_entries_for_user(user, generated_side_effects)
+    days_back = 30
+    while days_back.positive?
+      record = Entry.create!(date_of_report: days_back.days.ago, user_id: user.id)
+      record.mood.data = Faker::Number.within(range: 1..10)
+      record.side_effect.data = generated_side_effects
+      record.effectiveness.data = Faker::Number.within(range: 1..10)
+      days_back -= 1
+    end
+  end
 
-# def generated_side_effects
-#   generated_side_effects = []
-#   rand(5).times do
-#     generated_side_effects << Effect::SIDE_EFFECTS.sample
-#   end
-#   generated_side_effects
-# end
+  # generates a test user
+  def create_test_user
+    if User.where(user_name: 'test_user').exists?
+      User.find_by(user_name: 'test_user')
+    else
+      User.create!(user_name: 'test_user',
+                   email: 'test_user@example.com',
+                   password: 'password')
+    end
+  end
 
-# create_test_user
+  # generates a randomized list of up to five side effects
+  def generated_side_effects
+    generated_side_effects = []
+    rand(5).times do
+      generated_side_effects << SideEffect::LIST.sample
+    end
+    generated_side_effects
+  end
+end
+
+SeedOneUser.new
