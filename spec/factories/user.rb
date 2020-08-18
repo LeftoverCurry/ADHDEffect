@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :user do
-    id { 1 }
+    id {}
     user_name { Faker::Name.first_name }
     email { Faker::Internet.safe_email }
     password { 'veracity' }

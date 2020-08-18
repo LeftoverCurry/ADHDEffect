@@ -20,7 +20,9 @@
 #
 FactoryBot.define do
   factory :side_effect do
-    record { nil }
-    list { 'MyText' }
+    list { ['symptom 1', 'symptom 2'] }
+    trait :with_entry do
+      entry
+    end
   end
 end

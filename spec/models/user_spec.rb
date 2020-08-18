@@ -23,9 +23,9 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   let(:user) { create :user }
-  let(:effect1) { create :effect, user_id: user.id }
-  let(:effect2) { create :effect, user_id: user.id }
-  it 'creates a new user' do
-    expect(user).to be_valid
+  context 'with valid params' do
+    it 'creates a new user' do
+      expect(user).to be_valid
+    end
   end
 end

@@ -20,7 +20,9 @@
 #
 FactoryBot.define do
   factory :mood do
-    record { nil }
     score { 1 }
+    trait :with_entry do
+      entry
+    end
   end
 end
