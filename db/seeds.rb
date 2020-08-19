@@ -4,7 +4,7 @@
 
 # Finds or creates Test User
 class SeedOneUser
-  def initialize
+  def initialize(generated_side_effects)
     user = create_test_user
     Entry.where(user_id: user.id).destroy_all
     create_entries_for_user(user, generated_side_effects)
@@ -35,15 +35,6 @@ class SeedOneUser
                    password: 'password')
     end
   end
-
-  # generates a randomized list of up to five side effects
-  def generated_side_effects
-    generated_side_effects = []
-    rand(5).times do
-      generated_side_effects << SideEffect::LIST.sample
-    end
-    generated_side_effects
-  end
 end
 
-SeedOneUser.new
+SeedOneUser.new(generated_side_effects)

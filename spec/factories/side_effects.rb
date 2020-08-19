@@ -20,9 +20,18 @@
 #
 FactoryBot.define do
   factory :side_effect do
-    list { ['symptom 1', 'symptom 2'] }
+    list { generated_side_effects }
     trait :with_entry do
       entry
     end
   end
+end
+
+# generates a randomized list of up to five side effects
+def generated_side_effects
+  generated_side_effects = []
+  rand(5).times do
+    generated_side_effects << SideEffect::LIST.sample
+  end
+  generated_side_effects
 end

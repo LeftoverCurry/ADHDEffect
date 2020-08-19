@@ -21,7 +21,7 @@
 FactoryBot.define do
   factory :entry do
     user
-    date_of_report { '2020-08-17 14:02:46' }
+    date_of_report { Faker::Time.between(from: DateTime.now - 30, to: DateTime.now, format: :default) }
     after :create do |entry|
       create :mood, entry: entry
       create :side_effect, entry: entry

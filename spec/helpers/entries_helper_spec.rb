@@ -13,7 +13,7 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe EntriesHelper, type: :helper do
-  let(:entries) { create_list(:entry, 2) }
+  let(:entries) { create_list(:entry, 3) }
 
   describe '#build_mood_chart' do
     subject { helper.build_mood_chart(entries) }
@@ -48,5 +48,10 @@ RSpec.describe EntriesHelper, type: :helper do
     subject { helper.build_side_effects_chart(entries) }
 
     it { is_expected.to be_kind_of(Hash) }
+
+    it 'pulls the correct key from the constant and titleizes it' do
+      binding.pry
+      expect(subject).to have_key(name: 'Difficulty Falling Asleep')
+    end
   end
 end
