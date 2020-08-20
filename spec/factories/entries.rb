@@ -24,8 +24,18 @@ FactoryBot.define do
     date_of_report { Faker::Time.between(from: DateTime.now - 30, to: DateTime.now, format: :default) }
     after :create do |entry|
       create :mood, entry: entry
-      create :side_effect, entry: entry
+      create :side_effect_constant_random, entry: entry
       create :effectiveness, entry: entry
+    end
+    # Creates an entry with a side effect list that only includes 'irritability.'
+    factory :entry_constant_side_effect do
+      user
+      date_of_report { Faker::Time.between(from: DateTime.now - 30, to: DateTime.now, format: :default) }
+      after :create do |entry|
+        create :mood, entry: entry
+        create :side_effect_constant, entry: entry
+        create :effectiveness, entry: entry
+      end
     end
   end
 end

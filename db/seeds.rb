@@ -4,16 +4,16 @@
 
 # Finds or creates Test User
 class SeedOneUser
-  def initialize(generated_side_effects)
+  def initialize
     user = create_test_user
     Entry.where(user_id: user.id).destroy_all
-    create_entries_for_user(user, generated_side_effects)
+    create_entries_for_user(user)
   end
 
   private
 
   # creates 30 consecutive days of user data
-  def create_entries_for_user(user, generated_side_effects)
+  def create_entries_for_user(user)
     days_back = 30
     while days_back.positive?
       Entry.create!(date_of_report: days_back.days.ago,
@@ -37,4 +37,4 @@ class SeedOneUser
   end
 end
 
-SeedOneUser.new(generated_side_effects)
+SeedOneUser.new

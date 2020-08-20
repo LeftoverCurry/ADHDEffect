@@ -13,9 +13,8 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe EntriesHelper, type: :helper do
-  let(:entries) { create_list(:entry, 3) }
-
   describe '#build_mood_chart' do
+    let(:entries) { create_list(:entry, 3) }
     subject { helper.build_mood_chart(entries) }
     it { is_expected.to be_kind_of(Hash) }
 
@@ -30,6 +29,7 @@ RSpec.describe EntriesHelper, type: :helper do
   end
 
   describe '#build_effectiveness_chart' do
+    let(:entries) { create_list(:entry, 3) }
     subject { helper.build_effectiveness_chart(entries) }
 
     it { is_expected.to be_kind_of(Hash) }
@@ -45,13 +45,25 @@ RSpec.describe EntriesHelper, type: :helper do
   end
 
   describe '#build_side_effects_chart' do
+    let(:entries) { create_list(:entry_constant_side_effect, 3) }
     subject { helper.build_side_effects_chart(entries) }
+    let(:side_effect) { subject.first }
 
-    it { is_expected.to be_kind_of(Hash) }
+    it { is_expected.to be_kind_of(Array) }
 
     it 'pulls the correct key from the constant and titleizes it' do
-      binding.pry
-      expect(subject).to have_key(name: 'Difficulty Falling Asleep')
+      expect(side_effect[:name]).to eq('Difficulty Falling Asleep')
+    end
+
+    it 'stores the correct date as the key in the data hash' do
+      expect(side_effect[:data].keys.first).to eq(entries.min_by(&:date_of_report).date_of_report)
+    end
+
+    it 'correctly counts and sorts the number of occurrences of a side effect
+        and stores it in the data hash as the value' do
+      data_values = side_effect.values.last.values
+      expect(data_values.first).to eq(1)
+      expect(data_values.last).to eq(3)
     end
   end
 end
