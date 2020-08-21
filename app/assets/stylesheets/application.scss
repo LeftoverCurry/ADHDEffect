@@ -11,30 +11,15 @@
  * It is generally better to create a new file per style scope.
  *
  */
-@import "bootstrap"; 
-
-
-.nav-item a {
-  color: #7e00ff;
-  font-family: 'Zilla Slab', serif;
-}
-
-.navbar {
-  background-color: lightgray;
-  border-bottom: grey;
-}
-
-.navbar-brand {
-  size: 20%;
-}
-.navbar-expand-md .navbar-collapse {
-  justify-content: flex-end;
-}
-.nav-item ul {
-justify-content: right;
-}
-
-.btn {
-  border-radius: 50px;
-  font-family: 'Comfortaa', cursive;
-}
+//  Bootstrap styles.
+@import "bootstrap";
+// Fonts and other items used in every instance.
+@import "global/*";
+// Individual components such as buttons or slider bars.
+@import "components/*";
+// Resources tied to a model.
+@import "models/*";
+// Styling for the landing page.
+@import "landing/*";
+// Large, multipart componants that are used on multiple pages, such as navbars.
+@import "modules/*"; 

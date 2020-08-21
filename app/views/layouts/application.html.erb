@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>ADHDEffect</title>
+    <title><%= page_title %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,7 +12,7 @@
     <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
   </head>
 
-  <body>
+  <body class= "<%= body_class %>">
     <%= render 'navbar' %>
     <%= render 'login_alert' %>
     <%= yield %>
