@@ -19,7 +19,7 @@ class SeedOneUser
       Entry.create!(date_of_report: days_back.days.ago,
                     user_id: user.id,
                     mood_attributes: { score: Faker::Number.within(range: 1..10) },
-                    side_effect_attributes: { list: generated_side_effects },
+                    side_effect_attributes: { list: constant_random_effect },
                     effectiveness_attributes: { score: Faker::Number.within(range: 1..10) })
       days_back -= 1
     end

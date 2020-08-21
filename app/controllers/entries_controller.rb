@@ -16,6 +16,10 @@ class EntriesController < ApplicationController
   # GET /entries/new
   def new
     @entry = Entry.new
+    @side_effect_list = SideEffect::LIST
+    @entry.build_mood
+    @entry.build_side_effect
+    @entry.build_effectiveness
   end
 
   # GET /entries/1/edit
@@ -24,8 +28,9 @@ class EntriesController < ApplicationController
   # POST /entries
   # POST /entries.json
   def create
-    @entry = Entry.new(entry_params)
-
+    binding.pry
+    @entry = current_user.entries.new(entry_params)
+    binding.pry
     respond_to do |format|
       if @entry.save
         format.html { redirect_to @entry, notice: 'Entry was successfully created.' }
@@ -70,6 +75,9 @@ class EntriesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def entry_params
-    params.require(:entry).permit(:user_id, :date_of_report)
+    params.require(:entry).permit(:date_of_report, :user_id,
+                                  mood_attributes: [:score],
+                                  effectiveness_attributes: [:score],
+                                  side_effect_attributes: [:list])
   end
 end

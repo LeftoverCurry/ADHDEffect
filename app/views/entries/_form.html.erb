@@ -10,16 +10,27 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
-
   <div class="field">
     <%= form.label :date_of_report %>
     <%= form.datetime_select :date_of_report %>
   </div>
+
+  <%= form.fields_for :mood, @entry.mood do |mood_form| %>
+    <%= mood_form.label :score, 'How do you feel today?'%>
+    <%= mood_form.range_field :score, in: 1..10 %>
+  <% end %>
+
+  <%= form.fields_for :effectiveness, @entry.effectiveness do |eff_form| %>
+    <%= eff_form.label :score, 'How effective was your medicine today?'%>
+    <%= eff_form.range_field :score, in: 1..10 %>
+  <% end %>
+
+  <%= form.fields_for :side_effect, @entry.side_effect do |se_form| %>
+    <% @side_effect_list.map do |effect| %>
+        <%= se_form.check_box(:list, {}, "#{effect}") %>
+        <%= se_form.label(:list, effect)%>
+    <% end %>
+  <% end %>
 
   <div class="actions">
     <%= form.submit %>

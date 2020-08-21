@@ -3,7 +3,9 @@
 module EntriesHelper
   def build_mood_chart(entries)
     data_hash = {}
-    entries.each { |record| data_hash[record.date_of_report] = record.mood.score }
+    entries.each do |record|
+      data_hash[record.date_of_report] = record.mood.score
+    end
     data_hash
   end
 
@@ -16,13 +18,11 @@ module EntriesHelper
   end
 
   def build_side_effects_chart(entries)
-    # { name of side effect => { date of effect => total count up to that date} }
-    ordered_list = {}
-    SideEffect::LIST.each do |list_item|
+    # { name: name of side effect, data: { date of effect => total count up to
+    #                                       that date} }
+    chart_data = SideEffect::LIST.map do |list_item|
       side_effect_count_by_date = {}
       entries.each do |entry|
-        next unless entry.side_effect.list.include?(list_item)
-
         count = 0
         entries.each do |iteration|
           next unless iteration.side_effect.list.include?(list_item) &&
@@ -32,8 +32,8 @@ module EntriesHelper
         end
         side_effect_count_by_date[entry.date_of_report] = count
       end
-      ordered_list[name: list_item.titleize] = { data: side_effect_count_by_date }
+      { name: list_item.titleize, data: side_effect_count_by_date.sort.to_h }
     end
-    ordered_list
+    chart_data
   end
 end
