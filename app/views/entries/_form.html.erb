@@ -27,7 +27,7 @@
 
   <%= form.fields_for :side_effect, @entry.side_effect do |se_form| %>
     <% @side_effect_list.map do |effect| %>
-        <%= se_form.check_box(:list, {}, "#{effect}") %>
+        <%= se_form.check_box(:list, {}, effect, false) %>
         <%= se_form.label(:list, effect)%>
     <% end %>
   <% end %>

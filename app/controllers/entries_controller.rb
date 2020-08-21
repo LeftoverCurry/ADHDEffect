@@ -28,9 +28,7 @@ class EntriesController < ApplicationController
   # POST /entries
   # POST /entries.json
   def create
-    binding.pry
     @entry = current_user.entries.new(entry_params)
-    binding.pry
     respond_to do |format|
       if @entry.save
         format.html { redirect_to @entry, notice: 'Entry was successfully created.' }
