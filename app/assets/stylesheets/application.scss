@@ -11,15 +11,14 @@
  * It is generally better to create a new file per style scope.
  *
  */
+ 
 //  Bootstrap styles.
 @import "bootstrap";
 // Fonts and other items used in every instance.
 @import "global/*";
 // Individual components such as buttons or slider bars.
 @import "components/*";
-// Resources tied to a model.
-@import "models/*";
-// Styling for the landing page.
-@import "landing/*";
+// Resources unified across an entire controller.
+@import "controllers/*";
 // Large, multipart componants that are used on multiple pages, such as navbars.
 @import "modules/*"; 
