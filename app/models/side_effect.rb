@@ -31,4 +31,14 @@ class SideEffect < ApplicationRecord
   def self.all_except(side_effect_name)
     where.not(name: side_effect_name)
   end
+
+  # Creates up to five sample side effects.  Always includes 'irritability.'
+  def self.create_sample
+    side_effects = []
+    side_effects << SideEffect.find_by(name: 'difficulty falling asleep')
+    rand(5).times do
+      side_effects << SideEffect.all_except(side_effects.map(&:name)).sample
+    end
+    side_effects
+  end
 end

@@ -12,12 +12,9 @@
 FactoryBot.define do
   factory :side_effect do
     name { 'difficulty falling asleep' }
-    entry { nil }
-    trait :with_entry do
-      entry
-    end
+
     factory :side_effect_random do
-      name { SideEffect.all_except('difficulty falling asleep').sample.name }
+      name { SideEffect.all.sample.name }
     end
   end
 end

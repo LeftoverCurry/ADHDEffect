@@ -21,6 +21,7 @@
 FactoryBot.define do
   factory :mood do
     score { 1 }
+    entry
     trait :with_entry do
       entry
     end

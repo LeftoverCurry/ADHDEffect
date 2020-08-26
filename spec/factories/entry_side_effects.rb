@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: entry_side_effects
@@ -20,7 +22,7 @@
 #
 FactoryBot.define do
   factory :entry_side_effect do
-    side_effect { nil }
-    entry { nil }
+    side_effect
+    entry
   end
 end

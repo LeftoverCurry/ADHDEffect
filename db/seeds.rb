@@ -27,7 +27,7 @@ class SeedOneUser
                             user_id: @user.id,
                             mood_attributes: { score: Faker::Number.within(range: 1..10) },
                             effectiveness_attributes: { score: Faker::Number.within(range: 1..10) })
-      entry.side_effects << SideEffect.create_sample_side_effects
+      entry.side_effects << SideEffect.create_sample
       days_back -= 1
     end
   end

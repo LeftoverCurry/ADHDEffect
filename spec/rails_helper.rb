@@ -10,7 +10,7 @@ if Rails.env.production?
 end
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
-require 'rspec/rails'
+Rails.application.load_seed
 require 'spec_helper'
 require 'devise'
 require_relative 'support/controller_macros'
