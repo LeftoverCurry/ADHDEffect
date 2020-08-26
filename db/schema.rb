@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_17_172445) do
+ActiveRecord::Schema.define(version: 2020_08_26_125241) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,15 @@ ActiveRecord::Schema.define(version: 2020_08_17_172445) do
     t.index ["user_id"], name: "index_entries_on_user_id"
   end
 
+  create_table "entry_side_effects", force: :cascade do |t|
+    t.bigint "side_effect_id", null: false
+    t.bigint "entry_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["entry_id"], name: "index_entry_side_effects_on_entry_id"
+    t.index ["side_effect_id"], name: "index_entry_side_effects_on_side_effect_id"
+  end
+
   create_table "moods", force: :cascade do |t|
     t.bigint "entry_id", null: false
     t.integer "score"
@@ -40,11 +49,9 @@ ActiveRecord::Schema.define(version: 2020_08_17_172445) do
   end
 
   create_table "side_effects", force: :cascade do |t|
-    t.bigint "entry_id", null: false
-    t.text "list", default: [], array: true
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["entry_id"], name: "index_side_effects_on_entry_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -62,6 +69,7 @@ ActiveRecord::Schema.define(version: 2020_08_17_172445) do
 
   add_foreign_key "effectivenesses", "entries"
   add_foreign_key "entries", "users"
+  add_foreign_key "entry_side_effects", "entries"
+  add_foreign_key "entry_side_effects", "side_effects"
   add_foreign_key "moods", "entries"
-  add_foreign_key "side_effects", "entries"
 end
