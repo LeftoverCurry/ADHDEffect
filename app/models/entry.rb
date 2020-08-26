@@ -25,5 +25,5 @@ class Entry < ApplicationRecord
   has_one :effectiveness, dependent: :destroy
   accepts_nested_attributes_for :effectiveness, reject_if: ->(attributes) { attributes['score'].blank? }
   has_many :entry_side_effects, dependent: :destroy
-  has_many :side_effects, through: :entry_side_effect
+  has_many :side_effects, through: :entry_side_effects
 end

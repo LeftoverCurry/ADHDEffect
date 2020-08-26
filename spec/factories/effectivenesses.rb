@@ -21,8 +21,6 @@
 FactoryBot.define do
   factory :effectiveness do
     score { 1 }
-    trait :with_entry do
-      entry
-    end
+    entry
   end
 end

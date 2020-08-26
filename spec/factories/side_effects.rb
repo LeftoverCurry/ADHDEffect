@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: side_effects
@@ -9,7 +11,13 @@
 #
 FactoryBot.define do
   factory :side_effect do
-    name { "MyString" }
+    name { 'difficulty falling asleep' }
     entry { nil }
+    trait :with_entry do
+      entry
+    end
+    factory :side_effect_random do
+      name { SideEffect.all_except('difficulty falling asleep').sample.name }
+    end
   end
 end

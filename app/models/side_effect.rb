@@ -10,6 +10,25 @@
 #  updated_at :datetime         not null
 #
 class SideEffect < ApplicationRecord
-  belongs_to :entry
+  has_many :entry_side_effects
   has_many :entries, through: :entry_side_effect
+
+  LIST = ['difficulty falling asleep',
+          'lack of appetite',
+          'headache',
+          'stomachache or nausea',
+          'diarrhea',
+          'constipation',
+          'dizziness',
+          'dry mouth',
+          'irritability',
+          'increased heart rate',
+          'anxiety',
+          'feeling jittery',
+          'heavy crash'].freeze
+
+  # Allows for a search that excludes one side effect
+  def self.all_except(side_effect_name)
+    where.not(name: side_effect_name)
+  end
 end

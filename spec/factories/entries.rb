@@ -24,18 +24,33 @@ FactoryBot.define do
     date_of_report { Faker::Time.between(from: DateTime.now - 30, to: DateTime.now, format: :default) }
     after :create do |entry|
       create :mood, entry: entry
-      create :side_effect_constant_random, entry: entry
       create :effectiveness, entry: entry
+      entry.side_effects << create_sample
     end
     # Creates an entry with a side effect list that only includes 'irritability.'
     factory :entry_constant_side_effect do
       user
-      date_of_report { Faker::Time.between(from: DateTime.now - 30, to: DateTime.now, format: :default) }
+      date_of_report do
+        Faker::Time.between(from: DateTime.now - 30,
+                            to: DateTime.now, format: :default)
+      end
       after :create do |entry|
         create :mood, entry: entry
-        create :side_effect_constant, entry: entry
         create :effectiveness, entry: entry
+        entry.side_effects << create_sample
       end
     end
   end
+end
+
+# Creates up to five sample side effects.  Always includes 'difficulty falling asleep.'
+def create_sample
+  binding.pry
+  side_effects = []
+  side_effects << SideEffect.find_by(name: 'difficulty falling asleep')
+
+  rand(5).times do
+    side_effects << SideEffect.all_except(side_effects.map(&:name)).sample
+  end
+  side_effects
 end
