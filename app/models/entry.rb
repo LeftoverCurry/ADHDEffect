@@ -22,8 +22,8 @@ class Entry < ApplicationRecord
   belongs_to :user
   has_one :mood, dependent: :destroy
   accepts_nested_attributes_for :mood, reject_if: ->(attributes) { attributes['score'].blank? }
-  has_one :side_effect, dependent: :destroy
-  accepts_nested_attributes_for :side_effect
   has_one :effectiveness, dependent: :destroy
   accepts_nested_attributes_for :effectiveness, reject_if: ->(attributes) { attributes['score'].blank? }
+  has_many :entry_side_effects, dependent: :destroy
+  has_many :side_effects, through: :entry_side_effect
 end
