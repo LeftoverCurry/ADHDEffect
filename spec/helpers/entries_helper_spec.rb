@@ -45,14 +45,11 @@ RSpec.describe EntriesHelper, type: :helper do
   end
 
   describe '#build_side_effects_chart' do
-    let(:entries) { create_list(:entry_constant_side_effect, 3) }
+    let(:entries) { create_list(:entry, 3, one_constant: true) }
     subject { helper.build_side_effects_chart(entries) }
     let(:side_effect) { subject.first }
 
-    it do
-      binding.pry
-      expect(side_effect).to be_kind_of(Array)
-    end
+    it { is_expected.to be_kind_of(Array) }
 
     it 'pulls the correct key from the constant and titleizes it' do
       expect(side_effect[:name]).to eq('Difficulty Falling Asleep')

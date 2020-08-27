@@ -5,7 +5,7 @@
 # Finds or creates Test User
 class SeedOneUser
   def initialize
-    create_side_effect_list
+    create_side_effect_list unless SideEffect.exists?
     @user = create_test_user
     Entry.where(user_id: @user.id).destroy_all
     create_entries_for_user
@@ -25,8 +25,14 @@ class SeedOneUser
     while days_back.positive?
       entry = Entry.create!(date_of_report: days_back.days.ago,
                             user_id: @user.id,
-                            mood_attributes: { score: Faker::Number.within(range: 1..10) },
-                            effectiveness_attributes: { score: Faker::Number.within(range: 1..10) })
+                            mood_attributes: { score: Faker::Number.within(
+                              range: 1..10
+                            ) },
+                            effectiveness_attributes: {
+                              score: Faker::Number.within(
+                                range: 1..10
+                              )
+                            })
       entry.side_effects << SideEffect.create_sample
       days_back -= 1
     end
