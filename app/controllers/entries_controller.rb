@@ -7,6 +7,7 @@ class EntriesController < ApplicationController
   # GET /entries.json
   def index
     @entries = current_user.entries.all
+    @recent_entries = current_user.entries.all.where('date_of_report >= ?', 30.days.ago)
   end
 
   # GET /entries/1
@@ -18,7 +19,6 @@ class EntriesController < ApplicationController
     @entry = Entry.new
     @side_effect_list = SideEffect::LIST
     @entry.build_mood
-    @entry.build_side_effect
     @entry.build_effectiveness
   end
 
@@ -76,6 +76,6 @@ class EntriesController < ApplicationController
     params.require(:entry).permit(:date_of_report, :user_id,
                                   mood_attributes: [:score],
                                   effectiveness_attributes: [:score],
-                                  side_effect_attributes: [:list])
+                                  side_effect_ids: [])
   end
 end

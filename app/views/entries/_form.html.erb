@@ -1,4 +1,5 @@
 <%= javascript_pack_tag 'form' %>
+<div class='container-fluid mt-2'>
   <%= form_with(model: entry, local: true) do |form| %>
     <% if entry.errors.any? %>
       <div id="error_explanation">
@@ -11,20 +12,24 @@
         </ul>
       </div>
     <% end %>
-<fieldset class= "justify-content-center">
-    <div class="field">
-    <legend>
-      <%= form.label :date_of_report, 'What date and time are you reporting this for?' %>
-    </legend>
-      <%= form.datetime_select :date_of_report %>
+    <div class='form-group date-of-report border border-secondary'>
+      <legend class='text-center'>
+        <%= form.label :date_of_report, 'What date and time are you reporting this for?'%>
+      </legend>
+      <div class='row justify-content-center'>
+        <div class="col-md-8">
+          <%= form.datetime_select :date_of_report, {},{id: "datetimepicker"} %>
+        </div>
+      </div>
     </div>
-    <div class= 'form-group mood'>
+   
+    <div class= 'form-group mood border border-secondary'>
       <%= form.fields_for :mood, @entry.mood do |mood_form| %>
-        <legend>
+        <legend class='text-center'>
         <%= mood_form.label :score, 'How do you feel today?'%>
         </legend>
         <div class='row mx-1 align-items-center '>
-          <div class='col-3 col-sm-4 h-100'>
+          <div class='col-3 '>
             <p class='bar-lables m-0'>Depressed</p>
           </div>
           <div class='col-6'>
@@ -34,11 +39,12 @@
             <p class='bar-lables m-0'>Manic</p>
           </div>
         </div>
-      </div>
-    <% end %>
-    <div class= 'form-group effectiveness'>
+        <% end %>
+    </div>
+    
+    <div class= 'form-group effectiveness border border-secondary'>
       <%= form.fields_for :effectiveness, @entry.effectiveness do |eff_form| %>
-        <legend>
+        <legend class='text-center'>
         <%= eff_form.label :score, 'How effective was your medicine today?'%>
         </legend>
         <div class='row mx-1 align-items-center'>
@@ -56,28 +62,22 @@
       <% end %>
     </div>
 
-    <div class="btn-group-toggle" data-toggle="buttons">
-      <%= form.fields_for :side_effect, @entry.side_effect do |se_form| %>
-        <legend>Check any side effects you felt today:</legend>
-          <div class= 'row'>
-            <% @side_effect_list.map do |effect| %>
-                <div class= 'col-1 m-0'>
-                
-                <label class="btn btn-primary btn-clickbox">
-                  <%= se_form.collection_check_boxes(:side_effect, :list, @side_effect_list, ) %>
-                  <%= check_box_tag('[side_effect_attributes][list][]', effect, false, {class: "hidden-checkbox", autocomplete: "off"})%>
-                   <%= effect.titleize %> 
-                </label>
-
-                </div>
+    <div class='form-group side-effects border border-secondary'>
+      <div class="btn-group-toggle" data-toggle="buttons">
+          <legend class='text-center'>Check any side effects you felt today:</legend>
+          <div class= 'row justify-content-center'>
+            <%= form.collection_check_boxes( :side_effect_ids, SideEffect.all, :id, :titleize_effect) do |b|%>
+            <div class='col-3 m-3'>
+            <%= b.label(class: "btn btn-primary btn-block"){ b.check_box(class: 'hidden-checkbox') +  b.text } %>
+            </div>
             <% end %>
-
           </div>
-      <% end %>
+        </div>
      </div>
 
-    <div class="actions">
-      <%= form.submit %>
+    <div class="actions row justify-content-center">
+      <%= form.submit "Add to Your History", class: 'btn btn-info btn-lg text-nowrap m-3' %>
     </div>
   <% end %>
+</div>
 </div>

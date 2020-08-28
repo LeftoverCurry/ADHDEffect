@@ -1,1 +1,5 @@
 // Styling applied across the entire Entry controller
+.form-group {
+  border: 1px $primarycolor;
+  overflow: hidden;
+}

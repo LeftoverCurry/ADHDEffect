@@ -41,4 +41,8 @@ class SideEffect < ApplicationRecord
     end
     side_effects
   end
+
+  def titleize_effect
+    name.to_s.titleize
+  end
 end

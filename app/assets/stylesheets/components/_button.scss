@@ -2,4 +2,10 @@
 .btn {
   border-radius: 50px;
   font-family: 'Comfortaa', cursive;
+  white-space: nowrap;
+}
+
+.btn-nav {
+  background-color: $primarycolor;
+  border-color: $primarydarker;
 }
