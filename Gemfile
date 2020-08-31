@@ -43,6 +43,9 @@ gem 'groupdate'
 # Provides view helpers for better modulization of front end components.
 gem 'flutie'
 
+# Fix the horrific Bootstrap standard DateTime picker
+gem 'bootstrap4-datetime-picker-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger
   # console
