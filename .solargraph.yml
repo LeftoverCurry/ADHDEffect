@@ -6,6 +6,7 @@ exclude:
 - test/**/*
 - vendor/**/*
 - ".bundle/**/*"
+- "**/*.lock"
 require: []
 domains: []
 reporters:

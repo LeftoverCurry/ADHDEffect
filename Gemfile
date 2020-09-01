@@ -87,4 +87,7 @@ group :development, :test do
   gem 'rspec-rails'
   # Debugging for VSCode
   gem 'ruby-debug-ide'
+  # Documentation
+  gem 'yard'
+
 end
