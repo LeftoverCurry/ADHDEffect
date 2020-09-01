@@ -10,7 +10,7 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 
 import 'bootstrap'
-import 'application.scss'
+import './application.scss'
 
 require("chartkick")
 // require("moment")

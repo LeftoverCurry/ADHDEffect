@@ -89,5 +89,4 @@ group :development, :test do
   gem 'ruby-debug-ide'
   # Documentation
   gem 'yard'
-
 end

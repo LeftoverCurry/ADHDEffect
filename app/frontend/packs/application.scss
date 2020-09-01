@@ -11,20 +11,20 @@
 
 
 // Global folder: Fonts, variables, and other items used in every instance.
-@import "stylesheets/global/_global_variables.scss";
-@import "stylesheets/global/_text.scss";
+@import "../stylesheets/global/_global_variables.scss";
+@import "../stylesheets/global/_text.scss";
 
 // Components folder: Individual components such as buttons or slider bars.
-@import "stylesheets/components/_button.scss";
-@import "stylesheets/components/_error.scss";
-@import "stylesheets/components/_slider_bar.scss";
-@import "stylesheets/components/_toggle_button.scss";
+@import "../stylesheets/components/_button.scss";
+@import "../stylesheets/components/_error.scss";
+@import "../stylesheets/components/_slider_bar.scss";
+@import "../stylesheets/components/_toggle_button.scss";
 
 // Controllers folder: Resources unified across an entire controller.
-@import "stylesheets/controllers/devise.scss";
-@import "stylesheets/controllers/entries.scss";
-@import "stylesheets/controllers/home.scss";
+@import "../stylesheets/controllers/devise.scss";
+@import "../stylesheets/controllers/entries.scss";
+@import "../stylesheets/controllers/home.scss";
 
 // Large, multipart components that are used on multiple pages, such as navbars.
-@import "stylesheets/modules/_form.scss"; 
-@import "stylesheets/modules/_navbar.scss"; 
+@import "../stylesheets/modules/_form.scss"; 
+@import "../stylesheets/modules/_navbar.scss"; 
