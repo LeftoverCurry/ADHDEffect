@@ -6,8 +6,8 @@ class EntriesController < ApplicationController
   # GET /entries
   # GET /entries.json
   def index
-    @entries = current_user.entries.all
-    @recent_entries = current_user.entries.all.where('date_of_report >= ?', 30.days.ago)
+    list = current_user.entries.all.where('date_of_report >= ?', 30.days.ago)
+    @entries = list.includes(:mood, :effectiveness, :side_effects)
   end
 
   # GET /entries/1

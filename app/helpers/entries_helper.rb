@@ -18,7 +18,7 @@ module EntriesHelper
   end
 
   def build_side_effects_chart(entries)
-    chart = SideEffect.all.map do |side_effect|
+    SideEffect.all.map do |side_effect|
       { name: side_effect.name.titleize, data: entry_data(entries, side_effect) }
     end
   end

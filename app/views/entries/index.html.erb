@@ -1,24 +1,25 @@
 <% content_for(:page_title) {'History'} %>
+<%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
 <div class='container-fluid'>
   <div class='row my-4 justify-content-center'>
-    <div class= text-center>
+    <div class=text-center>
       <h1>Let's see how it's been going:</h1>
     </div>
   </div>
-    <div class='img-fluid'>
-      <h3 class='text-center mt-2 mb-0'>Mood</h3>
-      <%= area_chart build_mood_chart(@entries), colors: ['7e00ff'] %>
-    </div>
-    <div class='img-fluid'>
-      <h3 class='text-center mt-2 mb-0'>Effectiveness</h3>
-      <%= area_chart build_effectiveness_chart(@entries), colors: ['7e00ff'] %>
-    </div>
-    <div class='img-fluid'>
-      <h3 class='text-center mt-2 mb-0'>Total Reports of Side Effects Over Time</h3>
-      <%= line_chart build_side_effects_chart(@recent_entries) %>
-    </div>
-  
+  <div class='img-fluid'>
+    <h3 class='text-center mt-2 mb-0'>Mood</h3>
+    <%= area_chart build_mood_chart(@entries), colors: ['7e00ff'] %>
+  </div>
+  <div class='img-fluid'>
+    <h3 class='text-center mt-2 mb-0'>Effectiveness</h3>
+    <%= area_chart build_effectiveness_chart(@entries), colors: ['7e00ff'] %>
+  </div>
+  <div class='img-fluid'>
+    <h3 class='text-center mt-2 mb-0'>Total Reports of Side Effects Over Time</h3>
+    <%= line_chart build_side_effects_chart(@entries) %>
+  </div>
+
   <div class="text-center">
-  <%= link_to 'How are you feeling today?', new_entry_path, class:'btn btn-primary btn-lg text-nowrap m-3', type: 'button' %>
+    <%= link_to 'How are you feeling today?', new_entry_path, class:'btn btn-primary btn-lg text-nowrap m-3', type: 'button' %>
   </div>
 </div>
