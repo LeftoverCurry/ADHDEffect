@@ -1,5 +1,11 @@
 // Styling for forms
 
 legend {
-  font-family: 'Comfortaa', cursive;
+  font-family: "Comfortaa", cursive;
+}
+.date-collect {
+  background-color: $primarylight;
+  color: $primarydark;
+  border: 1px solid $primarydark;
+  border-radius: 20px;
 }
