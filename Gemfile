@@ -92,3 +92,5 @@ group :development, :test do
   # Documentation
   gem 'yard'
 end
+
+gem 'mini_racer', platforms: :ruby
