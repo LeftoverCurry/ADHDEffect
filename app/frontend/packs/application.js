@@ -11,8 +11,7 @@ require("@rails/activestorage").start();
 // Package dependancies
 import "bootstrap";
 require("chartkick");
-require("moment-timezone");
-import "tempusdominus-bootstrap";
+require("select2");
 
 // Import images from /images, allows use of 'image_pack_tag.'
 const images = require.context("../images", true);
@@ -22,7 +21,7 @@ const imagePath = (name) => images(name, true);
 import "./application.scss";
 
 // Import JS component files
-import "../javascript/form";
+require("../javascript/form");
 // Global JS variables
 window.$ = jQuery;
 window.jQuery = jQuery;
