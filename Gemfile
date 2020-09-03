@@ -28,21 +28,18 @@ gem 'jbuilder', '~> 2.7'
 # React front end framework
 gem 'react_on_rails'
 gem 'foreman'
-
 # Bootstrap and required dependancies
 gem 'jquery-rails'
-
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
-
 # Chart visualization gem, configure to use Google Charts
 gem 'chartkick'
-
 # Provides methods for grouping by date and time.
 gem 'groupdate'
-
 # Provides view helpers for better modulization of front end components.
 gem 'flutie'
+# Provide randomized data for seeds and factories
+gem 'faker'
 
 
 group :development, :test do
@@ -81,8 +78,6 @@ group :development, :test do
   gem 'debase'
   # Create factories for testing
   gem 'factory_bot_rails'
-  # Provide randomized data for seeds and factories
-  gem 'faker'
   # Pretty console based debugging
   gem 'pry-rails'
   # Rspec testing gem for Rails
