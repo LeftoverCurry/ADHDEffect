@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import PropTypes from "prop-types";
+import React, { useState } from "react";
 
 const HelloWorld = (props) => {
   const [name, setName] = useState(props.name);
@@ -10,8 +10,13 @@ const HelloWorld = (props) => {
       <hr />
       <form>
         <label htmlFor="name">
-          Say hello to:
-          <input id="name" type="text" value={name} onChange={(e) => setName(e.target.value)} />
+          Say howdy to:
+          <input
+            id="name"
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
         </label>
       </form>
     </div>
