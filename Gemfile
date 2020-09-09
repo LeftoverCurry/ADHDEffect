@@ -26,8 +26,8 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2'
 
 # React front end framework
-gem 'react_on_rails'
 gem 'foreman'
+gem 'react_on_rails'
 # Bootstrap and required dependancies
 gem 'jquery-rails'
 # Reduces boot times through caching; required in config/boot.rb
@@ -40,7 +40,6 @@ gem 'groupdate'
 gem 'flutie'
 # Provide randomized data for seeds and factories
 gem 'faker'
-
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger
@@ -57,7 +56,7 @@ group :development do
   # Linting and formatting support for IDE
   gem 'reek'
   gem 'rubocop-rails'
-  gem "rubocop-rspec", "~> 1.43"
+  gem 'rubocop-rspec', '~> 1.43'
   gem 'solargraph'
   gem 'solargraph-reek'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring

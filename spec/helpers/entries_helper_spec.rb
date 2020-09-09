@@ -14,8 +14,10 @@ require 'rails_helper'
 # end
 RSpec.describe EntriesHelper, type: :helper do
   describe '#build_mood_chart' do
-    let(:entries) { create_list(:entry, 3) }
     subject { helper.build_mood_chart(entries) }
+
+    let(:entries) { create_list(:entry, 3) }
+
     it { is_expected.to be_kind_of(Hash) }
 
     it 'builds data hash correctly' do
@@ -29,8 +31,9 @@ RSpec.describe EntriesHelper, type: :helper do
   end
 
   describe '#build_effectiveness_chart' do
-    let(:entries) { create_list(:entry, 3) }
     subject { helper.build_effectiveness_chart(entries) }
+
+    let(:entries) { create_list(:entry, 3) }
 
     it { is_expected.to be_kind_of(Hash) }
 
@@ -45,8 +48,9 @@ RSpec.describe EntriesHelper, type: :helper do
   end
 
   describe '#build_side_effects_chart' do
-    let(:entries) { create_list(:entry, 3, one_constant: true) }
     subject { helper.build_side_effects_chart(entries) }
+
+    let(:entries) { create_list(:entry, 3, one_constant: true) }
     let(:side_effect) { subject.first }
 
     it { is_expected.to be_kind_of(Array) }
