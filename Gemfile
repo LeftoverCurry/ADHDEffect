@@ -55,9 +55,11 @@ group :development do
   gem 'listen', '~> 3.2'
   gem 'web-console', '>= 3.3.0'
   # Linting and formatting support for IDE
+  gem 'reek'
   gem 'rubocop-rails'
   gem "rubocop-rspec", "~> 1.43"
   gem 'solargraph'
+  gem 'solargraph-reek'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
@@ -92,5 +94,3 @@ group :development, :test do
 end
 
 gem 'mini_racer', platforms: :ruby
-
-
