@@ -34,5 +34,9 @@
     "@pmmmwh/react-refresh-webpack-plugin": "^0.4.2",
     "react-refresh": "^0.8.3",
     "webpack-dev-server": "^3.11.0"
+  },
+  "scripts": {
+    "test": "yarn run build:test && rspec",
+    "build:test": "rm -rf public/webpack/test && RAILS_ENV=test NODE_ENV=test bin/webpack"
   }
 }
