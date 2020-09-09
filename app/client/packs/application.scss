@@ -1,30 +1,28 @@
-// Application-wide stylesheet.  All files imported into this will be included in the app. 
+// Application-wide stylesheet.  All files imported into this will be included in the app.
 // Webpacker currently does not support globbing of files,
-// so each file must be imported individually.  The import order matters, as it cascades.  
+// so each file must be imported individually.  The import order matters, as it cascades.
 // Generally, we prefer to create new files and import them rather
 // than include styling in this file.
-
 
 //  Bootstrap styles and datetime picker.
 @import "bootstrap";
 // @import "tempusdominus-bootstrap-4";
 
-
 // Global folder: Fonts, variables, and other items used in every instance.
-@import "../stylesheets/global/_global_variables.scss";
-@import "../stylesheets/global/_text.scss";
+@import "../app/assets/styles/global/global_variables";
+@import "../app/assets/styles/global/_text.scss";
 
 // Components folder: Individual components such as buttons or slider bars.
-@import "../stylesheets/components/_button.scss";
-@import "../stylesheets/components/_error.scss";
-@import "../stylesheets/components/_slider_bar.scss";
-@import "../stylesheets/components/_toggle_button.scss";
+@import "../app/assets/styles/components/_button.scss";
+@import "../app/assets/styles/components/_error.scss";
+@import "../app/assets/styles/components/_slider_bar.scss";
+@import "../app/assets/styles/components/_toggle_button.scss";
 
 // Controllers folder: Resources unified across an entire controller.
-@import "../stylesheets/controllers/devise.scss";
-@import "../stylesheets/controllers/entries.scss";
-@import "../stylesheets/controllers/home.scss";
+@import "../app/assets/styles/controllers/devise.scss";
+@import "../app/assets/styles/controllers/entries.scss";
+@import "../app/assets/styles/controllers/home.scss";
 
 // Large, multipart components that are used on multiple pages, such as navbars.
-@import "../stylesheets/modules/_form.scss"; 
-@import "../stylesheets/modules/_navbar.scss"; 
+@import "../app/assets/styles/modules/_form.scss";
+@import "../app/assets/styles/modules/_navbar.scss";
