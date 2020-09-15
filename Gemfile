@@ -58,6 +58,7 @@ group :development do
   gem 'rubocop-rails'
   gem 'rubocop-rspec', '~> 1.43'
   gem 'solargraph'
+  gem 'solargraph-reek'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
@@ -77,12 +78,16 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # Devise gem for user authorization
 gem 'devise'
 group :development, :test do
+  # Debase used for Rails debugger for vscode
+  gem 'debase'
   # Create factories for testing
   gem 'factory_bot_rails'
   # Pretty console based debugging
   gem 'pry-rails'
   # Rspec testing gem for Rails
   gem 'rspec-rails'
+  # Debugging for VSCode
+  gem 'ruby-debug-ide'
   # Documentation
   gem 'yard'
 end
