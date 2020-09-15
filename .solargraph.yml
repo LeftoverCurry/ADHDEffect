@@ -11,10 +11,9 @@ require: []
 domains: []
 reporters:
   - rubocop
-  - reek
   - require_not_found
   - typecheck
 require_paths: []
-plugins:
-  - solargraph-reek
+plugins: []
+
 max_files: 5000
