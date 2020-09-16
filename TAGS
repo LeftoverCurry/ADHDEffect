@@ -1,0 +1,214 @@
+
+app/mailers/application_mailer.rb,67
+class ApplicationMailer < ActionMailer::BaseApplicationMailer3,0
+
+app/assistants/db/seeds_assistant.rb,459
+module SeedsAssistantSeedsAssistant1,0
+  def create_confirmable_usercreate_confirmable_user3,0
+  def create_side_effect_listcreate_side_effect_list11,0
+  def create_entries_for_user(_user)create_entries_for_user19,0
+  class EntryBuilderEntryBuilder26,0
+  class EntryBuilderSeedsAssistant::EntryBuilder26,0
+    def initialize(number)initialize27,0
+    def build_score(name)build_score40,0
+    def generated_random_idsgenerated_random_ids44,0
+
+app/assistants/db/seed_one.rb,66
+class SeedOneUserSeedOneUser3,0
+  def initializeinitialize5,0
+
+app/models/entry.rb,1426
+class Entry < ApplicationRecordEntry21,0
+  belongs_to :useruser22,0
+  belongs_to :useruser=22,0
+  belongs_to :userbuild_user22,0
+  belongs_to :usercreate_user22,0
+  belongs_to :usercreate_user!22,0
+  has_one :mood, dependent: :destroymood23,0
+  has_one :mood, dependent: :destroymood=23,0
+  has_one :mood, dependent: :destroybuild_mood23,0
+  has_one :mood, dependent: :destroycreate_mood23,0
+  has_one :mood, dependent: :destroycreate_mood!23,0
+  has_one :effectiveness, dependent: :destroyeffectiveness25,0
+  has_one :effectiveness, dependent: :destroyeffectiveness=25,0
+  has_one :effectiveness, dependent: :destroybuild_effectiveness25,0
+  has_one :effectiveness, dependent: :destroycreate_effectiveness25,0
+  has_one :effectiveness, dependent: :destroycreate_effectiveness!25,0
+  has_many :entry_side_effects, dependent: :destroyentry_side_effects27,0
+  has_many :entry_side_effects, dependent: :destroyentry_side_effects=27,0
+  has_many :entry_side_effects, dependent: :destroyentry_side_effect_ids27,0
+  has_many :entry_side_effects, dependent: :destroyentry_side_effect_ids=27,0
+  has_many :side_effects, through: :entry_side_effectsside_effects28,0
+  has_many :side_effects, through: :entry_side_effectsside_effects=28,0
+  has_many :side_effects, through: :entry_side_effectsside_effect_ids28,0
+  has_many :side_effects, through: :entry_side_effectsside_effect_ids=28,0
+
+app/models/entry_side_effect.rb,477
+class EntrySideEffect < ApplicationRecordEntrySideEffect23,0
+  belongs_to :side_effectside_effect24,0
+  belongs_to :side_effectside_effect=24,0
+  belongs_to :side_effectbuild_side_effect24,0
+  belongs_to :side_effectcreate_side_effect24,0
+  belongs_to :side_effectcreate_side_effect!24,0
+  belongs_to :entryentry25,0
+  belongs_to :entryentry=25,0
+  belongs_to :entrybuild_entry25,0
+  belongs_to :entrycreate_entry25,0
+  belongs_to :entrycreate_entry!25,0
+
+app/models/side_effect.rb,746
+class SideEffect < ApplicationRecordSideEffect10,0
+  has_many :entry_side_effectsentry_side_effects11,0
+  has_many :entry_side_effectsentry_side_effects=11,0
+  has_many :entry_side_effectsentry_side_effect_ids11,0
+  has_many :entry_side_effectsentry_side_effect_ids=11,0
+  has_many :entries, through: :entry_side_effectentries12,0
+  has_many :entries, through: :entry_side_effectentries=12,0
+  has_many :entries, through: :entry_side_effectentrie_ids12,0
+  has_many :entries, through: :entry_side_effectentrie_ids=12,0
+  LIST = ['difficulty falling asleep',LIST15,0
+  LIST = ['difficulty falling asleep',SideEffect::LIST15,0
+  def self.all_except(side_effect_name)all_except30,0
+  def titleize_effecttitleize_effect34,0
+
+app/models/mood.rb,218
+class Mood < ApplicationRecordMood21,0
+  belongs_to :entryentry22,0
+  belongs_to :entryentry=22,0
+  belongs_to :entrybuild_entry22,0
+  belongs_to :entrycreate_entry22,0
+  belongs_to :entrycreate_entry!22,0
+
+app/models/effectiveness.rb,236
+class Effectiveness < ApplicationRecordEffectiveness21,0
+  belongs_to :entryentry22,0
+  belongs_to :entryentry=22,0
+  belongs_to :entrybuild_entry22,0
+  belongs_to :entrycreate_entry22,0
+  belongs_to :entrycreate_entry!22,0
+
+app/models/application_record.rb,67
+class ApplicationRecord < ActiveRecord::BaseApplicationRecord3,0
+
+app/models/user.rb,181
+class User < ApplicationRecordUser22,0
+  has_many :entriesentries27,0
+  has_many :entriesentries=27,0
+  has_many :entriesentrie_ids27,0
+  has_many :entriesentrie_ids=27,0
+
+app/jobs/application_job.rb,58
+class ApplicationJob < ActiveJob::BaseApplicationJob3,0
+
+app/controllers/application_controller.rb,79
+class ApplicationController < ActionController::BaseApplicationController3,0
+
+app/controllers/hello_world_controller.rb,98
+class HelloWorldController < ApplicationControllerHelloWorldController3,0
+  def indexindex6,0
+
+app/controllers/entries_controller.rb,308
+class EntriesController < ApplicationControllerEntriesController3,0
+  def indexindex8,0
+  def show; endshow15,0
+  def newnew18,0
+  def edit; endedit26,0
+  def createcreate30,0
+  def updateupdate45,0
+  def destroydestroy59,0
+  def set_entryset_entry70,0
+  def entry_paramsentry_params75,0
+
+app/controllers/home_controller.rb,138
+class HomeController < ApplicationControllerHomeController3,0
+  def landing; endlanding7,0
+  def check_signed_incheck_signed_in11,0
+
+app/controllers/users/omniauth_callbacks_controller.rb,242
+module UsersUsers3,0
+  class OmniauthCallbacksController < Devise::OmniauthCallbacksControllerOmniauthCallbacksController4,0
+  class OmniauthCallbacksController < Devise::OmniauthCallbacksControllerUsers::OmniauthCallbacksController4,0
+
+app/controllers/users/passwords_controller.rb,194
+module UsersUsers3,0
+  class PasswordsController < Devise::PasswordsControllerPasswordsController4,0
+  class PasswordsController < Devise::PasswordsControllerUsers::PasswordsController4,0
+
+app/controllers/users/sessions_controller.rb,264
+module UsersUsers3,0
+  class SessionsController < Devise::SessionsControllerSessionsController4,0
+  class SessionsController < Devise::SessionsControllerUsers::SessionsController4,0
+    def newnew8,0
+    def createcreate13,0
+    def destroydestroy18,0
+
+app/controllers/users/unlocks_controller.rb,182
+module UsersUsers3,0
+  class UnlocksController < Devise::UnlocksControllerUnlocksController4,0
+  class UnlocksController < Devise::UnlocksControllerUsers::UnlocksController4,0
+
+app/controllers/users/confirmations_controller.rb,218
+module UsersUsers3,0
+  class ConfirmationsController < Devise::ConfirmationsControllerConfirmationsController4,0
+  class ConfirmationsController < Devise::ConfirmationsControllerUsers::ConfirmationsController4,0
+
+app/controllers/users/registrations_controller.rb,218
+module UsersUsers3,0
+  class RegistrationsController < Devise::RegistrationsControllerRegistrationsController4,0
+  class RegistrationsController < Devise::RegistrationsControllerUsers::RegistrationsController4,0
+
+app/helpers/entries_helper.rb,289
+module EntriesHelperEntriesHelper3,0
+  def build_mood_chart(entries)build_mood_chart4,0
+  def build_effectiveness_chart(entries)build_effectiveness_chart12,0
+  def build_side_effects_chart(entries)build_side_effects_chart20,0
+  def entry_data(entries, side_effect)entry_data26,0
+
+app/helpers/home_helper.rb,33
+module HomeHelperHomeHelper3,0
+
+app/helpers/application_helper.rb,47
+module ApplicationHelperApplicationHelper3,0
+
+app/channels/application_cable/connection.rb,195
+module ApplicationCableApplicationCable3,0
+  class Connection < ActionCable::Connection::BaseConnection4,0
+  class Connection < ActionCable::Connection::BaseApplicationCable::Connection4,0
+
+app/channels/application_cable/channel.rb,177
+module ApplicationCableApplicationCable3,0
+  class Channel < ActionCable::Channel::BaseChannel4,0
+  class Channel < ActionCable::Channel::BaseApplicationCable::Channel4,0
+
+config/application.rb,162
+module ADHDEffectADHDEffect11,0
+  class Application < Rails::ApplicationApplication12,0
+  class Application < Rails::ApplicationADHDEffect::Application12,0
+
+spec/support/controller_macros.rb,77
+module ControllerMacrosControllerMacros3,0
+  def login_userlogin_user4,0
+
+db/migrate/20200812141353_devise_create_users.rb,101
+class DeviseCreateUsers < ActiveRecord::Migration[6.0]DeviseCreateUsers3,0
+  def changechange4,0
+
+db/migrate/20200817172335_create_effectivenesses.rb,109
+class CreateEffectivenesses < ActiveRecord::Migration[6.0]CreateEffectivenesses3,0
+  def changechange4,0
+
+db/migrate/20200826125241_create_entry_side_effects.rb,111
+class CreateEntrySideEffects < ActiveRecord::Migration[6.0]CreateEntrySideEffects1,0
+  def changechange2,0
+
+db/migrate/20200826125120_create_side_effects.rb,101
+class CreateSideEffects < ActiveRecord::Migration[6.0]CreateSideEffects3,0
+  def changechange4,0
+
+db/migrate/20200817172334_create_entries.rb,93
+class CreateEntries < ActiveRecord::Migration[6.0]CreateEntries3,0
+  def changechange4,0
+
+db/migrate/20200817172355_create_moods.rb,89
+class CreateMoods < ActiveRecord::Migration[6.0]CreateMoods3,0
+  def changechange4,0
