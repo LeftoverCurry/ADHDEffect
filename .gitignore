@@ -207,3 +207,4 @@ build-iPhoneSimulator/
 # Ignore YARN files
 /.yardoc
 /docs
+TAGS
